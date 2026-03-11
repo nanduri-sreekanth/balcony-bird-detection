@@ -8,11 +8,11 @@ Binary bird presence detector for a fixed balcony camera. Classifies each frame 
 
 Add these three datasets to the notebook before running:
 
-| Dataset | Kaggle Slug | Path in Notebook |
+| Dataset | Kaggle Link | Path in Notebook |
 |---|---|---|
-| Custom balcony images | `sreekanthnanduri/balcony-bird-dataset` | `/kaggle/input/datasets/sreekanthnanduri/balcony-bird-dataset/balcony-bird-dataset/` |
-| Birdies (general birds) | `gpiosenka/birdies` | `/kaggle/input/datasets/gpiosenka/birdies/images/` |
-| COCO 2017 (no-bird class) | `awsaf49/coco-2017-dataset` | `/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/` |
+| Custom balcony images | [sreekanthnanduri/balcony-bird-dataset](https://www.kaggle.com/datasets/sreekanthnanduri/balcony-bird-dataset) | `/kaggle/input/datasets/sreekanthnanduri/balcony-bird-dataset/balcony-bird-dataset/` |
+| Birdies (general birds) | [gpiosenka/birdies](https://www.kaggle.com/datasets/gpiosenka/birdies) | `/kaggle/input/datasets/gpiosenka/birdies/images/` |
+| COCO 2017 (no-bird class) | [awsaf49/coco-2017-dataset](https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset) | `/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/` |
 
 ---
 
@@ -37,22 +37,32 @@ Add these three datasets to the notebook before running:
 
 ---
 
-## Output Files
+## Trained Models
 
-All saved to `/kaggle/working/`:
+| File | Size | Description | Download |
+|---|---|---|---|
+| `bird_detector_keras.onnx` | 12 MB | Android deployment via ONNX Runtime | [Download](models/bird_detector_keras.onnx) |
+| `bird_detector_keras.keras` | 35 MB | Native Keras format — recommended for TF2 fine-tuning | [Download](models/bird_detector_keras.keras) |
+| `bird_detector_keras.h5` | 35 MB | HDF5 format — classic Keras, widely compatible | [Download](models/bird_detector_keras.h5) |
 
-| File | Description |
-|---|---|
-| `models/bird_detector_keras.onnx` | Android deployment via ONNX Runtime |
-| `models/bird_detector_keras.h5` | HDF5 format — classic Keras, widely compatible |
-| `models/bird_detector_keras.keras` | Native Keras format — recommended for TF2 fine-tuning |
-| `models/best_phase1.keras` | Best checkpoint from Phase 1 |
-| `models/best_phase2.keras` | Best checkpoint from Phase 2 |
-| `keras_training_curves.png` | Loss + Accuracy curves (both phases) |
-| `keras_confusion_matrix.png` | Confusion matrix on test set |
-| `keras_roc_curve.png` | ROC curve + AUC score |
-| `keras_pr_curve.png` | Precision-Recall curve |
-| `keras_sample_predictions.png` | 16 sample predictions grid |
+---
+
+## Evaluation Metrics
+
+### Training Curves
+![Training Curves](metrics/keras_training_curves.png)
+
+### Confusion Matrix
+![Confusion Matrix](metrics/keras_confusion_matrix.png)
+
+### ROC Curve
+![ROC Curve](metrics/keras_roc_curve.png)
+
+### Precision-Recall Curve
+![Precision-Recall Curve](metrics/keras_pr_curve.png)
+
+### Sample Predictions
+![Sample Predictions](metrics/keras_sample_predictions.png)
 
 ---
 
